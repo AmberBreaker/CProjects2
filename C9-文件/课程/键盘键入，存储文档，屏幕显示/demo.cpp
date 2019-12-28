@@ -10,28 +10,27 @@ void writeFile(FILE *);
 void readFile(FILE *);
 
 int main(int argc, char * argv[]) {
+
 	char fileName[50];
-	printf("请输入需要打开的文件：");
+	printf("请输入文件名称：");
 	scanf("%s", fileName);
-	
+
 	FILE * f = fopen(fileName, "w+");
-	
 	if (f == NULL) {
-		printf("文件打开或创建失败\n");
-		exit(0); 
+		printf("文件打开或创建失败！\n");
+		exit(0);
 	}
-	
+
 	writeFile(f);
 	readFile(f);
-	
+
 	fclose(f);
-	
 	system("PAUSE");
 	return 0;
 }
 
 void writeFile(FILE * f) {
-	printf("请键入文件内容，并以#结束：\n");
+	printf("请键入文件内容：\n");
 	char ch;
 	while ((ch = getchar()) != '#') {
 		fputc(ch, f);
@@ -43,6 +42,6 @@ void readFile(FILE * f) {
 	printf("文件内容为：\n");
 	while (!feof(f)) {
 		putchar(fgetc(f));
-	} 
+	}
 	printf("\n");
 }
