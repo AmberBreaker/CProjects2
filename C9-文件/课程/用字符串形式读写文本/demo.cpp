@@ -15,37 +15,35 @@ int main(int argc, char * argv[]) {
 	printf("请输入文件名称：");
 	scanf("%s", fileName);
 	getchar();
-
+	
 	writeFile(fileName);
 	readFile(fileName);
-
+	
 	system("PAUSE");
 	return 0;
 }
 
 void writeFile(char * fileName) {
+	printf("请键入文章内容：\n");
+	char str[100];
+	gets(str);
 	FILE * f = fopen(fileName, "a");
 	if (f == NULL) {
 		printf("文件打开失败！\n");
 		exit(0);
 	}
-
-	printf("请键入文件内容：\n");
-	char str[100];
-	gets(str);
 	fputs(str, f);
-
 	fclose(f);
 }
 
 void readFile(char * fileName) {
-	printf("文件内容为：\n");
-	char * str;
+	printf("文章内容为：\n");
 	FILE * f = fopen(fileName, "r");
+	char * str;
 	if (f != NULL) {
-		while (fgets(str, 100, f)) {
-			printf("%s\n", str);
+		while (fgets(str, sizeof(str), f)) {
+			printf("%s", str);
 		}
-		fclose(f);
 	}
+	printf("\n");
 }
