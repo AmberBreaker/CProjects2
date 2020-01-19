@@ -4,15 +4,17 @@
 
 #define N 10
 #define X 2
-#define K 1e6
+#define K 1e8
 
 clock_t start, end;
 double dur;
 
+// CLK_TCK
+
 void Ftick(double (*fp)(double *, int, double), double a[]) {
 	double sum;
 	start = clock();
-	for (int i = 1;i <= K; i++) {
+	for (int i = 0; i < K; i++) {
 		sum = fp(a, N, X);
 	}
 	end = clock();
