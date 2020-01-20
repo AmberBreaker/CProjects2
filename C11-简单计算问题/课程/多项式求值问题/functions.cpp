@@ -4,12 +4,12 @@
 
 #define N 10
 #define X 2
-#define K 1e8
+#define K 1e7
+
+// CLK_TCK
 
 clock_t start, end;
 double dur;
-
-// CLK_TCK
 
 void Ftick(double (*fp)(double *, int, double), double a[]) {
 	double sum;
