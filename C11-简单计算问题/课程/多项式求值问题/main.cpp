@@ -1,6 +1,5 @@
 /*
-	根据不同算法，体现算法设计的效率差别
-	开启DOS
+	DOS Command: 
 	gcc -c functions.cpp -o functions.o
 	gcc -c main.cpp -o main.o
 	gcc main.o functions.o -c main.exe
